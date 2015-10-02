@@ -1,0 +1,117 @@
+package cookies;
+import javax.swing.JOptionPane;
+import processing.core.*;
+
+import java.util.*;
+import java.awt.event.MouseEvent;
+import java.lang.*;
+import javax.swing.JOptionPane;
+public class CookieClicks extends PApplet{
+public double clicks = 0;
+public int granny;
+public boolean granny1 = true;
+public boolean granny2 = true;
+public boolean granny3 = true;
+public boolean granny4 = true;
+public boolean granny5 = true;
+public boolean granny6 = true;
+	public void setup(){
+		size(900, 500);
+		background(62,129,242);
+	}
+	public void draw(){
+	cookie();
+	mouseClicked();
+	upgrade();
+	if(key == 'p'){
+		System.out.println("To get upgrades:\n 10 cookies & 1 = upgrade1\n 30 cookies & 2 = upgrade2\n 60 cookies & 3 = upgrade3\n100 cookies & 4 = upgrade4\n500 cookies & 5 = upgrade5\n800 cookies % 6 = upgrade6\nClick another key to start playing");
+		try {
+		    Thread.sleep(2000);                 //1000 milliseconds is one second.
+		} catch(InterruptedException ex) {
+		    Thread.currentThread().interrupt();
+		}
+	}
+	}
+	public void cookie(){
+		fill(146,51,0);
+		ellipse(450, 250, 200, 200);
+	}
+	 public void mouseClicked(MouseEvent e)
+{
+		if(mouseX >= 350 && mouseX <= 550 && mouseY >= 150 && mouseY <= 350 && mousePressed && granny != 6){
+			System.out.println("YOU HAVE CLICKED THE COOKIE!");
+			clicks = clicks+.5;
+			System.out.println("Your cookies: "+clicks);
+		}
+		else if(mouseX >= 350 && mouseX <= 550 && mouseY >= 150 && mouseY <= 350 && mousePressed && granny == 6){
+			System.out.println("YOU HAVE CLICKED THE COOKIE!");
+			clicks = clicks+1;
+			System.out.println("Your cookies: "+clicks);
+		}
+	}
+	 public void upgrade(){
+		 //granny 1
+	if(clicks >= 10 && key == '1' && granny1 == true){
+		granny = 1;
+		clicks = clicks-10;
+		JOptionPane.showMessageDialog(null, "You get .01 cookies per second!");
+		granny1 = false;
+	}
+	if(granny == 1){
+		clicks = clicks+.01;
+	}
+	//granny 2
+	if(clicks >= 30 && key == '2' && granny2 == true){
+		granny = 2;
+		clicks = clicks-30;
+		JOptionPane.showMessageDialog(null, "You get .025 cookies per second!");
+		granny2 = false;
+	}
+	if(granny == 2){
+		clicks = clicks+.025;
+
+	}
+	//granny 3
+	if(clicks >= 60 && key == '3' && granny3 == true){
+		granny = 3;
+		clicks = clicks-60;
+		JOptionPane.showMessageDialog(null, "You get .0525 cookies per second!");
+		granny3 = false;
+	}
+	if(granny == 3){
+		clicks = clicks+.0525;
+	}
+	//granny 4
+	if(clicks >= 100 && key == '4' && granny4 == true){
+		granny = 4;
+		clicks = clicks-100;
+		JOptionPane.showMessageDialog(null, "You get .2525 cookies per second!");
+		granny4 = false;
+	}
+	if(granny == 4){
+		clicks = clicks+.2525;
+	}
+	//granny 5
+	if(clicks >= 500 && key == '5' && granny5 == true){
+		granny = 5;
+		clicks = clicks-500;
+		JOptionPane.showMessageDialog(null, "You get .3525 cookies per second!");
+		granny5 = false;
+	}
+	if(granny == 5){
+		clicks = clicks+.3525;
+	}
+	if(clicks >= 800 && key == '6' && granny6 == true){
+		granny = 6;
+		clicks = clicks-800;
+		JOptionPane.showMessageDialog(null, "You get .5825 cookies per second!");
+		granny6 = false;
+	}
+	if(granny == 6){
+		clicks = clicks+.5825;
+	}
+	 }
+
+	//end of class
+}
+
